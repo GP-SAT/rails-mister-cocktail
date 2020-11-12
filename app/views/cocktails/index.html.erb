@@ -1,0 +1,12 @@
+<h1>All our cocktails (<%= @cocktails.count %>)</h1>
+<% @cocktails.each do |cocktail| %>
+  <div class="container">
+    <div class="card">
+      <%= cocktail.name %> 
+      </br>
+      </br>
+      <%= link_to "More info", cocktail_path(cocktail.id), style: "color:blue" %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Add a new cocktail", new_cocktail_path %>
