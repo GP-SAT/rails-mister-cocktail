@@ -4,15 +4,19 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis eligendi asper
 </br>
 </br>
 <ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item">
-    <%= dose.description %>
-    </br></br>
-    <%= dose.ingredient.name %>
-    </br></br>
-    <%= link_to "Delete dose", dose_path(dose.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    </li>
-  <% end %>
+  <li class="list-group-item">
+    <% @cocktail.doses.each do |dose| %>
+      <%= dose.description %>
+      </br></br>
+      <%= dose.ingredient.name %>
+      </br></br>
+      <%= link_to "Delete dose", dose_path(dose.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <% end %>
+
+    <% @cocktail.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </li>
 </ul>
 </br>
 </br>
