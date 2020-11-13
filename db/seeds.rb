@@ -8,6 +8,7 @@
 # Ingredient.create(name: "lemon")
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
+Ingredient.destroy_all
 ingredients_list = JSON.parse(open("http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").read) 
 ingredients_list['drinks'].each do |line| 
   Ingredient.create(name: line['strIngredient1']) 
